@@ -1,0 +1,7 @@
+HUMAN INTERFACE DEVICES MODULE
+
+This module is for managing the devices humans use to interact with the game.
+
+Goals
+1. Physical IO Devices
+2. Game Specific IO Devices

@@ -1,0 +1,11 @@
+COLLISION AND PHYSICS MODULE
+
+This should be self explanatory.
+
+Goals
+1. Forces and Constraints
+2. Ray Casting Queries
+3. Rigid Bodies
+4. Phantoms
+5. Shapes / Colliders
+6. Physics / World Collision

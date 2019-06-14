@@ -1,0 +1,9 @@
+VISUAL EFFECTS MODULE
+
+Goals
+1. Light Mapping and Dynamic Shadows
+2. HDR Lighting
+3. PRT Lighting
+4. Particle and Decal System
+5. Post Effects
+6. Environment Mapping

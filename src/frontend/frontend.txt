@@ -1,0 +1,10 @@
+FRONTEND MODULE
+
+Module related to displaying information to users.
+
+Goals
+1. Heads Up Display
+2. In Game GUI
+3. In Game Menues
+4. Wrappers / Attract Mode
+5. Video and Cinematics

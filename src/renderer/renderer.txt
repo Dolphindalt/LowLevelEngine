@@ -1,0 +1,14 @@
+LOW LEVEL RENDERER MODULE
+
+I need some graphics.
+
+Goals
+1. Materials and Shaders
+2. Static and Dynamic Lighting
+3. Cameras
+4. Text and Fonts
+5. Primitive Submission
+6. Viewports and Virtual Screens
+7. Texture and Surface Light
+8. Debug Drawing (Missing textures, etc)
+9. Graphics Device Interface

@@ -1,0 +1,14 @@
+RESOURCES MODULE
+
+Manages all game assets and resources.
+
+Goals
+1. 3D Models
+2. Textures
+3. Materials
+4. Fonts
+5. Skeletons
+6. Collision
+7. Physics Parameters
+8. Game Map
+9. etc.

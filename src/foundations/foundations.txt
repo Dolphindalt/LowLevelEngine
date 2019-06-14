@@ -1,0 +1,12 @@
+FOUNDATIONS MODULE
+
+Foundations will attempt to provide high level gameplay mechanics.
+
+Goals:
+1. Game flow system
+2. Scripting system
+3. Static world elements
+4. Dynamic game object model
+5. Real time agent based simulation
+6. Event systems
+7. World loading

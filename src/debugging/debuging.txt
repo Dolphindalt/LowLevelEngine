@@ -1,0 +1,10 @@
+DEBUGGING MODULE
+
+The debugging module gives developers tools to find errors in the program 
+in an effective and reasonable amount of time.
+
+Goals:
+1. Recording & Playback
+2. Memory and Performance Staticstics
+3. In-Game Menus and Consoles
+4. Debug build only features
