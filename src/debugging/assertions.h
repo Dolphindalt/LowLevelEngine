@@ -4,6 +4,7 @@
 #define ASSERTIONS_ENABLED 1
 #define STATIC_ASSERTIONS_ENABLED 1
 
+// Logs in stderr a warning giving detail about the failed assertion and its location
 void reportAssertionFailure(const char *expression, const char *file, unsigned int line);
 
 // break program then enter debugger
