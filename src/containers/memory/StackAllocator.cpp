@@ -3,9 +3,9 @@
 #include "src/debugging/assertions.h"
 #include <cstdlib>
 
-StackAllocator::StackAllocator(uint32_t stackSize_bytes)
+StackAllocator::StackAllocator(size_t stackSize_bytes)
 : stackSize_bytes(stackSize_bytes),
-memory_bottom((uint32_t *)malloc(stackSize_bytes)), marker(0)
+memory_bottom((size_t *)malloc(stackSize_bytes)), marker(0)
 {
 
 }
@@ -15,7 +15,7 @@ StackAllocator::~StackAllocator()
     free(memory_bottom);
 }
 
-void *StackAllocator::alloc(uint32_t size_bytes)
+void *StackAllocator::alloc(size_t size_bytes)
 {
     this->marker += size_bytes;
     ASSERT(this->marker < this->stackSize_bytes);
