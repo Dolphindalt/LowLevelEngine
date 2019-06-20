@@ -23,4 +23,28 @@ TEST_CASE("Stack Allocator", "[Stack Allocator]")
         sa.clear();
         REQUIRE(sa.getMarker() == 0);
     }
+    SECTION("allocating different size memory")
+    {
+        // odd alignment
+        uint8_t *some_byte = (uint8_t *)sa.alloc(sizeof(uint8_t));
+        *some_byte = 0x55;
+        uint32_t *some_word = (uint32_t *)sa.alloc(sizeof(uint32_t));
+        *some_word = 0x66334411;
+        uint16_t *some_hword = (uint16_t *)sa.alloc(sizeof(uint16_t));
+        *some_hword = 0xFFFF;
+        REQUIRE(*some_byte == 0x55);
+        REQUIRE(*some_word == 0x66334411);
+        REQUIRE(*some_hword == 0xFFFF);
+
+        sa.clear();
+        // even alignment
+        some_word = (uint32_t *)sa.alloc(sizeof(uint32_t));
+        *some_word = 0x22000000;
+        some_hword = (uint16_t *)sa.alloc(sizeof(uint16_t));
+        *some_hword = 0x11AA;
+        REQUIRE(*some_word == 0x22000000);
+        REQUIRE(*some_hword == 0x11AA);
+
+        sa.clear();
+    }
 }
