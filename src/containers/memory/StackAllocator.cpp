@@ -1,13 +1,15 @@
 #include "src/containers/memory/StackAllocator.h"
 
 #include "src/debugging/assertions.h"
+#include "src/containers/memory/allocate.h"
 #include <cstdlib>
+#include <cstdio>
 
 StackAllocator::StackAllocator(size_t stackSize_bytes)
 : stackSize_bytes(stackSize_bytes),
-memory_bottom((size_t *)malloc(stackSize_bytes)), marker(0)
+memory_bottom(malloc(stackSize_bytes)), marker(0)
 {
-
+    ASSERT(stackSize_bytes != 0);
 }
 
 StackAllocator::~StackAllocator()
@@ -19,7 +21,8 @@ void *StackAllocator::alloc(size_t size_bytes)
 {
     this->marker += size_bytes;
     ASSERT(this->marker < this->stackSize_bytes);
-    return (void *)(memory_bottom + size_bytes);
+    uintptr_t new_top = reinterpret_cast<uintptr_t>(memory_bottom) + size_bytes;
+    return reinterpret_cast<void *>(new_top);
 }
 
 StackAllocator::Marker StackAllocator::getMarker() const

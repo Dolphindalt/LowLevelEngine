@@ -1,7 +1,7 @@
 cmake_minimum_required (VERSION 3.0)
 
 enable_language(CXX)
-set(CMAKE_CXX_FLAGS "-g")
+set(CMAKE_CXX_FLAGS "-g -Wall")
 
 project (Engine)
 

@@ -11,6 +11,7 @@ private:
     uint8_t current_stack;
     StackAllocator frames[2];
 public:
+    DoubleBufferedAllocator(size_t size_bytes);
     void swapBuffers();
     void clearCurrentBuffer();
     void *alloc(uint32_t size_bytes);

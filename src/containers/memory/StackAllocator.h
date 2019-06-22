@@ -28,7 +28,7 @@ public:
     void clear();
 private:
     size_t stackSize_bytes;
-    size_t *memory_bottom;
+    void *memory_bottom;
     Marker marker;
 };
 
