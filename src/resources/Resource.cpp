@@ -55,4 +55,10 @@ int Resource<T>::getRefs() const
     return referenceTable[lookup];
 }
 
+template <class T>
+T *Resource<T>::getResource() const
+{
+    return this->resource;
+}
+
 #endif

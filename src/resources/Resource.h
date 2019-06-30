@@ -19,6 +19,7 @@ public:
     ~Resource();
 
     int getRefs() const;
+    T *getResource() const;
 };
 
 #include "src/resources/Resource.cpp"
