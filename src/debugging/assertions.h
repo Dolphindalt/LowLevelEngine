@@ -4,11 +4,17 @@
 #define ASSERTIONS_ENABLED 1
 #define STATIC_ASSERTIONS_ENABLED 1
 
-// Logs in stderr a warning giving detail about the failed assertion and its location
-void reportAssertionFailure(const char *expression, const char *file, unsigned int line);
+// Logs in stderr a warning giving detail about the failed assertion and 
+// its location
+void reportAssertionFailure(const char *expression, const char *file, 
+    unsigned int line);
 
 // break program then enter debugger
+#ifdef _MSC_VER
+#define DEBUG_BREAK __debugbreak();
+#else
 #define DEBUG_BREAK asm volatile ("int3;");
+#endif
 
 #if ASSERTIONS_ENABLED
 #define ASSERT(expr) \

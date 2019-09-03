@@ -6,10 +6,11 @@ set(CMAKE_CXX_FLAGS "-g -Wall")
 project (Engine)
 
 include_directories(.)
-include_directories("./lib/include")
+include_directories("./lib/glm")
 link_directories("./lib")
 
 add_subdirectory("./lib/zip" EXCLUDE_FROM_ALL)
+add_subdirectory("./lib/glm" EXCLUDE_FROM_ALL)
 
 set (Engine_VERSION_MAJOR 0)
 set (Engine_VERSION_MINOR 1)
