@@ -1,6 +1,10 @@
 #include "src/containers/io/fileio.h"
 
+#include "src/debugging/logging.h"
 #include <cstdio>
+#include <fstream>
+
+using std::ifstream;
 
 bool syncWriteFile(const char *filePath, const uint8_t *buffer, size_t bufferSize,
     size_t &bytesWritten)
@@ -38,6 +42,43 @@ bool syncReadFile(const char *filePath, uint8_t *buffer, size_t bufferSize,
     }
     rBytesRead = 0;
     return false;
+}
+
+bool syncReadFileToVectorBuffer(const char *filePath, 
+    vector<unsigned char> &buffer)
+{
+    ifstream file(filePath, std::ios::binary);
+    if (file.fail())
+    {
+        WARNING_LOG("Failed to read file to buffer: %s\n", filePath);
+        return false;
+    }
+    file.seekg(0, std::ios::end);
+    size_t size = file.tellg();
+    file.seekg(0, std::ios::beg);
+    size -= file.tellg();
+    buffer.resize(size);
+    file.read((char *) &(buffer[0]), size);
+    file.close();
+    return true;
+}
+
+bool syncReadFileToStringBuffer(const char *filePath, string &buffer)
+{
+    ifstream file(filePath, std::ios::binary);
+    if (file.fail())
+    {
+        WARNING_LOG("Failed to read file to buffer: %s\n", filePath);
+        return false;
+    }
+    file.seekg(0, std::ios::end);
+    size_t size = file.tellg();
+    file.seekg(0, std::ios::beg);
+    size -= file.tellg();
+    buffer.resize(size);
+    file.read((char *) &(buffer[0]), size);
+    file.close();
+    return true;
 }
 
 thread asyncReadFile(const char *filePath, uint8_t *buffer, size_t bufferSize,

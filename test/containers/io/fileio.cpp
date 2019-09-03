@@ -24,6 +24,18 @@ TEST_CASE("File IO", "[File IO]")
         REQUIRE(bytesRead == file_len);
     }
 
+    SECTION("sync reading files as a buffer")
+    {
+        vector<unsigned char> vbuffer;
+        bool result = syncReadFileToVectorBuffer(filePath, vbuffer);
+        REQUIRE(result == true);
+        REQUIRE(vbuffer.size() != 0);
+        string sbuffer;
+        result = syncReadFileToStringBuffer(filePath, sbuffer);
+        REQUIRE(result == true);
+        REQUIRE(sbuffer.size() != 0);
+    }
+
     SECTION("async file reading")
     {
         char buf[file_len];
